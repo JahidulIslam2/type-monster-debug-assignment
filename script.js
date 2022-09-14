@@ -14,7 +14,7 @@ let questionText = "";
 // Load and display question
 fetch("./texts.json")
   .then((res) => res.json())
-  .then((data) => {
+  .then((data) => {console.log()
     questionText = data[Math.floor(Math.random() * data.length)];
     question.innerHTML = questionText;
   });
