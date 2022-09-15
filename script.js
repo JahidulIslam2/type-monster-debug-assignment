@@ -14,7 +14,7 @@ let questionText = "";
 // Load and display question
 fetch("./texts.json")
   .then((res) => res.json())
-  .then((data) => {console.log()
+  .then((data) => {
     questionText = data[Math.floor(Math.random() * data.length)];
     question.innerHTML = questionText;
   });
@@ -35,7 +35,7 @@ const typeController = (e) => {
 
   // if it is not a valid character like Control/Alt then skip displaying anything
   if (!validLetters.includes(newLetter)) {
-    return;
+    return;     
   }
 
   userText += newLetter;
@@ -43,11 +43,12 @@ const typeController = (e) => {
   const newLetterCorrect = validate(newLetter);
 
   if (newLetterCorrect) {
+  
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
+    errorCount++; 
   }
-
   // check if given question text is equal to user typed text
   if (questionText === userText) {
     gameOver();
@@ -89,7 +90,7 @@ const gameOver = () => {
   `;
 
   addHistory(questionText, timeTaken, errorCount);
-  
+
   // restart everything
   startTime = null;
   errorCount = 0;
