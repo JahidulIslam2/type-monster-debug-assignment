@@ -63,8 +63,8 @@ body {
 }
 #result {
   position: fixed;
-  top: 10%; 
-  left: 10%;
+  top: 50%; 
+  left: 50%;
   transform: translate(-50%, -50%);
   height: 250px;
   width: 400px;
@@ -178,15 +178,36 @@ button {
   height: 100vh;
   width: 100%;
   position: fixed;
-  top: 0;
+  top:0;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (min-width: 768px) {
   .box-container {
     padding: 0 20px;
-    width: 100%;
+    width: 90%;
   }
+  
   .card {
-    flex-direction: column;
+    /* flex-direction:row; */
+    grid-template-rows: repeat(4,3fr);
+    width: 30%;
+    height: 300px;
+    
   }
+ 
 }
+@media only screen and (max-width: 768px) {
+  .box-container {
+    padding: 0 20px;
+    width: 90%;
+  }
+  
+  .card {
+    /* flex-direction:row; */
+    flex-direction: column;
+    width: 90%;
+    
+  }
+ 
+}
+
