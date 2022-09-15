@@ -89,12 +89,13 @@ const gameOver = () => {
   `;
 
   addHistory(questionText, timeTaken, errorCount);
-
+  
   // restart everything
   startTime = null;
   errorCount = 0;
   userText = "";
   display.classList.add("inactive");
+  
 };
 
 const closeModal = () => {
